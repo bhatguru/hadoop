@@ -1,0 +1,485 @@
+  232  start-all.sh
+  233  jps
+  234  stop-all.sh
+  235  hadoop namenode -format
+  236  start-all.sh
+  237  stop-all.sh 
+  238  jps
+  239  exit
+  240  pwd
+  241  cd hd_workspace/
+  242  ls
+  243  cd SampleWordCount/
+  244  pwd
+  245  ls
+  246  cd src/
+  247  pwd
+  248  l s-ltr
+  249  ls -tlr
+  250  hadoop fs -ls
+  251  start-all.sh 
+  252  jps
+  253  hadoop fs -ls
+  254  pwd
+  255  cd ../../../
+  256  pwd
+  257  ls
+  258  cd training_material/
+  259  ls
+  260  cd data/
+  261  ls
+  262  tar -zxf shakespeare.tar.gz
+  263  ls -ltr
+  264  hadoop fs -put shakespeare
+  265  hadoop fs -put shakespeare/
+  266  hadoop fs -put shakespeare shakespeare
+  267  hadoop fs -ls
+  268  cd ~
+  269  cd hd_workspace/
+  270  ls
+  271  cd SampleWordCount/
+  272  ls
+  273  cd src/
+  274  cd /user/training/shakespeare
+  275  hadoop fs -ls
+  276  hadoop jar wordcount.jar WordCountDriver shakespeare word_count_shakespear
+  277  hadoop fs -ls
+  278  hadoop fs -cd word_count_shakespear
+  279  hadoop fs -options
+  280  hadoop fs -ls
+  281  hadoop fs -ls word_count_shakespear/
+  282  hadoop fs -cat word_count_shakespear/part-r-00000
+  283  exit
+  284  stop-all.sh 
+  285  exit
+  286  start-all.sh 
+  287  jps
+  288  hadoop fs -ls
+  289  hadoop fs -ls 
+  290  hadoop fs -ls /user/training/word_count_shakespear
+  291  hadoop fs -ls /user/training/word_count_shakespear/part-r-00000
+  292  hadoop fs -cat /user/training/word_count_shakespear/part-r-00000
+  293  pwd
+  294  hadoop fs -get /user/training/word_count_shakespear/part-r-00000
+  295  hadoop fs -get /user/training/word_count_shakespear/part-r-00000 ~
+  296  ls -ltr
+  297  gedit part-r-00000
+  298  hadoop dfsadmin -safemode get
+  299  hadoop dfsadmin -safemode set
+  300  stop-all.sh 
+  301  exit
+  302  start-all.sh 
+  303  stop-all.sh 
+  304  jps
+  305  exit
+  306  start-all.sh 
+  307  jps
+  308  pwd
+  309  cd ..
+  310  ls
+  311  cd hd_workspace/
+  312  ls
+  313  cd WordCoOccurence/
+  314  ls
+  315  hadoop fs -ls
+  316  hadoop jar wordCoOccurence.jar WordCoOccurenceDriver shakespear woCo_Output
+  317  hadoop fs -ls
+  318  hadoop jar WordCoOccurenceDriver shakespeare WordCo_Op
+  319  hadoop jar wordCoOccurence.jar WordCoOccurenceDriver shakespeare WordCo_Op
+  320  pwd
+  321  cd ..
+  322  cd InvertedIndex/
+  323  ls
+  324  hadoop jar invertedIndex.jar InvertedIndexDriver shakespeare invert_op
+  325  stop-all.sh 
+  326  jps
+  327  exit
+  328  start-all.sh 
+  329  cd ..
+  330  cd hd_workspace/
+  331  cd AverageWordCount/
+  332  ls -ltr
+  333  hadoop jar avarageWC.jar AverageWordLengthDriver shakespeare avgwdcnt_op
+  334  vi test
+  335  hadoop -fs put test test
+  336  hadoop fs -put test test
+  337  hadoop fs -ls
+  338  hadoop jar avarageWC.jar AverageWordLengthDriver test avgwdcnt_op_test
+  339  exit
+  340  cd ..
+  341  cd hd_workspace/
+  342  cd VowelConsonentCount/
+  343  ls -tlr
+  344  jps
+  345  start-all.sh 
+  346  ls -ltr
+  347  jps
+  348  hadoop dfsadmin -get safemode
+  349  hadoop dfsadmin safemode -get
+  350  hadoop dfsadmin -safemode -get
+  351  hadoop dfsadmin -safemode get
+  352  clear
+  353  ls -ltr
+  354  vi testVowelConsonent
+  355  hadoop fs -put testVowelConsonent vowelConsonent
+  356  hadoop fs -ls
+  357  clear
+  358  hadoop jar vowelconsonant.jar VowelConsonentDriver vowelConsonent vowel_consonent_op
+  359  hadoop jar vowelconsonant1.jar VowelConsonentDriver vowelConsonent vowel_consonent_op
+  360  hadoop jar vowelconsonant1.jar VowelConsonentDriver shakespeare  vowel_consonent_op1
+  361  pwd
+  362  cd ../LongestWord/
+  363  ls -tlr
+  364  vi test
+  365  ls -tlr
+  366  mv test LongestWordTest
+  367  ls -tlr
+  368  hadoop fs -put LongestWordTest LongestWordTest 
+  369  hadoop fs -ls
+  370  hadoop jar longestword1.jar LongestWordDriver LongestWordTest longest_word_op
+  371  hadoop jar longestword2.jar LongestWordDriver LongestWordTest longest_word_op
+  372  hadoop jar longestword2.jar LongestWordDriver LongestWordTest longest_word_op1
+  373  hadoop jar longestword2.jar LongestWordDriver shakespeare longest_word_op2
+  374  pwd
+  375  ls -ltr
+  376  cp LongestWordTest ../WordCoutnInFile/
+  377  cd ../WordCoutnInFile/
+  378  ls -tlr
+  379  hadoop jar wordcountinfile.jar WordCountInFileDriver LongestWordTest word_count_inFile_op
+  380  hadoop jar wordcountinfile.jar WordCountInFileDriver shakespeare  word_count_inFile_op1
+  381  pwd
+  382  ls -ltr
+  383  vi LongestWordTest 
+  384  hadoop fs -put LongestWordTest LongestWordTest 
+  385  hadoop fs -del LongestWordTest 
+  386  hadoop fs -rm LongestWordTest 
+  387  hadoop fs -put LongestWordTest LongestWordTest 
+  388  hadoop fs -cat LongestWordTest 
+  389  pwd
+  390  cd ../ConsecutiveCharecter/
+  391  ls -ltr
+  392  hadoop jar consicutivechar.jar ConsecutiveCharecterDriver LongestWordTest Consi_op
+  393  hadoop jar consicutivechar1.jar ConsecutiveCharecterDriver LongestWordTest Consi_op
+  394  hadoop jar consicutivechar1.jar ConsecutiveCharecterDriver LongestWordTest Consi_op1
+  395  hadoop jar consicutivechar2.jar ConsecutiveCharecterDriver LongestWordTest Consi_op2
+  396  ls- ltr
+  397  ls -ltr
+  398  rm -rf consicutivechar*
+  399  l s-ltr
+  400  ls -lrt
+  401  hadoop jar consicutivechar.jar ConsecutiveCharecterDriver LongestWordTest Consi_op3
+  402  hadoop jar consicutivechar1.jar ConsecutiveCharecterDriver LongestWordTest Consi_op4
+  403  ls -ltr
+  404  rm -rf consicutivechar*
+  405  ls -ltr
+  406  hadoop jar consicutivechar.jar ConsecutiveCharecterDriver LongestWordTest Consi_op5
+  407  hadoop jar consicutivechar.jar ConsecutiveCharecterDriver shakespeare  Consi_op6
+  408  l s-ltr
+  409  ls -ltr
+  410  rm -rf consicutivechar.jar 
+  411  ls -tlr
+  412  hadoop jar consicutivechar.jar ConsecutiveCharecterDriver shakespeare  Consi_op7
+  413  rm -rf consicutivechar.jar 
+  414  ls -ltr
+  415  hadoop jar consicutivechar.jar ConsecutiveCharecterDriver shakespeare  Consi_op8
+  416  hadoop fs -ls
+  417  pwd
+  418  cd ~
+  419  ls -ltr
+  420  cd training_material/
+  421  ls -ltr
+  422  cd data/
+  423  ls
+  424  ls -ltr
+  425  gunzip access_log.tar.gz
+  426  ls -ltr
+  427  tar -xvf access_log.tar 
+  428  ls -ltr
+  429  vi access_log
+  430  ls -ltr
+  431  head 10 access_log
+  432  head 10 access_log > access_log1
+  433  head 10 access_log 
+  434  ls -tlr
+  435  vi access_log1
+  436  cat access_log |more
+  437  ls -ltr
+  438  vi access_log1 
+  439  hadoop fs -put access_log1 access_log1
+  440  hadoop fs -ls
+  441  rm -rf /user/training/Consi_op
+  442  rm -rf /user/training/Consi_op1
+  443  rm -rf /user/training/Consi_op2
+  444  rm -rf /user/training/Consi_op3
+  445  rm -rf /user/training/Consi_op4
+  446  hadoop fs -ls
+  447  hadoop fs -rm /user/training/Consi_op
+  448  hadoop fs -rmr /user/training/Consi_op
+  449  hadoop fs -rmr /user/training/Consi_op1
+  450  hadoop fs -rmr /user/training/Consi_op2
+  451  hadoop fs -rmr /user/training/Consi_op3
+  452  hadoop fs -rmr /user/training/Consi_op4
+  453  hadoop fs -rmr /user/training/Consi_op5
+  454  hadoop fs -rmr /user/training/Consi_op6
+  455  hadoop fs -rmr /user/training/Consi_op7
+  456  hadoop fs -ls
+  457  cd ~
+  458  cd hd_workspace/
+  459  cd AcessLog/
+  460  ls-tlr
+  461  ls -tlr
+  462  hadoop har accesslog.jar AccessLogDriver access_log1 access_log_op
+  463  hadoop jar accesslog.jar AccessLogDriver access_log1 access_log_op
+  464  pwd
+  465  head 10 ~/training_material/data/access_log
+  466  ls -tlr
+  467  rm -rf accesslog.jar 
+  468  ls -tlr
+  469  hadoop jar accesslog.jar AccessLogDriver access_log1 access_log_op1
+  470  pwd
+  471  cd ~/training_material/data/
+  472  ls -tlr
+  473  hadoop fs -put access_log access_log
+  474  hadoop fs -ls
+  475  hadoop jar accesslog.jar AccessLogDriver access_log access_log_op2
+  476  cd -
+  477  ls -ltr
+  478  hadoop jar accesslog.jar AccessLogDriver access_log access_log_op2
+  479  cd ~/training_material/data/
+  480  ls-ltr
+  481  ls -ltr
+  482  gedit access_log &
+  483  kill -9 23072
+  484  ls -ltr
+  485  stop-all.sh 
+  486  exit
+  487  start-all.sh 
+  488  stop-all.sh 
+  489  cd ..
+  490  cd hd
+  491  cd hd_workspace/
+  492  cd SampleWordCount/
+  493  ls -ltr
+  494  hadoop jar sampleWord.jar WordCountDriver -D fs.default.name=file:/// -D mapred.job.tracker=local /home/training/training_material/data/shakespeare/ output
+  495  ls -ltr
+  496  cd output/
+  497  ls
+  498  vi part-r-00000 
+  499  ls
+  500  cd _SUCCESS 
+  501  vi _SUCCESS 
+  502  cd ..
+  503  ls -ltr
+  504  hadoop jar sampleWord.jar WordCountDriver  /home/training/training_material/data/shakespeare/ output
+  505  exit
+  506  cd ..
+  507  cd hd_workspace/
+  508  cd distributedCache/
+  509  ls
+  510  hadoop fs -put emp_Table.csv emp_Table.csv
+  511  start-all.sh 
+  512  hadoop fs -put emp_Table.csv emp_Table.csv
+  513  ls
+  514  hadoop fs -put location_table.csv location_table.csv 
+  515  hadoop jar  distributedcache.jar EmployeeDriver dc_op
+  516  hadoop fs -ls
+  517  hadoop jar  distributedcache1.jar EmployeeDriver dc_op1
+  518  pwd
+  519  cd ..
+  520  cd hadoop-temp/
+  521  ls
+  522  cd dfs/
+  523  ls
+  524  cd data/
+  525  ls
+  526  cd current/
+  527  ls
+  528  cd ..
+  529  cd $HADOOP_HOME
+  530  ls
+  531  pwd
+  532  cd conf
+  533  ls
+  534  vi hdfs-site.xml
+  535  vi masters 
+  536  vi core-site.xml
+  537  vi mapred-site.xml
+  538  hadoop jar  distributedcache1.jar EmployeeDriver  emp_Table.csv dc_op21
+  539  cd ..
+  540  cd ~
+  541  cd hd_workspace/
+  542  cd distributedCache/
+  543  hadoop jar  distributedcache1.jar EmployeeDriver  emp_Table.csv dc_op21
+  544  exit
+  545  start-all.sh 
+  546  cd ..
+  547  pwd
+  548  ls
+  549  cd hd_workspace/
+  550  ls
+  551  cd SecondarySort/
+  552  ls
+  553  cd src/
+  554  ls
+  555  cd ~
+  556  ls
+  557  hadoop fs -ls put SampleDataFile.txt SampleDataFile.txt
+  558  hadoop fs -put SampleDataFile.txt SampleDataFile.txt
+  559  hadoop fs -ls
+  560  cd hd_workspace/
+  561  ls
+  562  cd SecondarySort/
+  563  ls
+  564  hadoop jar secsort.jar SecondarySortDriver /home/training/SampleDataFile.txt secSort_op
+  565  hadoop jar secsort.jar SecondarySortDriver SampleDataFile.txt secSort_op
+  566  hadoop jar secsort1.jar SecondarySortDriver SampleDataFile.txt secSort1_op
+  567  hadoop fs -ls
+  568  hadoop jar secsort1.jar SecondarySortDriver emp_Table.csv  secSort1_op
+  569  hadoop jar secsort1.jar SecondarySortDriver emp_Table.csv  secSort1_op1
+  570  stop-all.sh 
+  571  exit
+  572  start-all.sh 
+  573  hadoop jar secsort1.jar SecondarySortDriver SampleDataFile.txt secSort1_op
+  574  cd cd ~
+  575  cd ~
+  576  cd hd_workspace/
+  577  ls
+  578  cd SecondarySort/
+  579  ls
+  580  hadoop jar secsort1.jar SecondarySortDriver SampleDataFile.txt secSort1_op
+  581  hadoop jar secsort1.jar SecondarySortDriver SampleDataFile.txt secSort1_op3
+  582  edit
+  583  gedit .basch
+  584  gedit .bashrc
+  585  cd.
+  586  cd..
+  587  /home/training/.bashrc
+  588  cat .bashrc
+  589  clear
+  590  vi .bashrc
+  591  exit
+  592  quit
+  593  clear
+  594  java -SUN
+  595  java -version
+  596  cat /proc/sys/net/ipv6/conf/all/disable_ipv6
+  597  ssh-keygen -t rsa -P""
+  598  ssh-keygen -t rsa -P
+  599  ssh-keygen -t rsa -p ""
+  600  ssh-keygen -t rsa -p""
+  601  cd /home/training/.ssh/
+  602  ls
+  603  ls -l
+  604  cd /home/training/.ssh/id_rsa >> /home/training/.ssh/authorized_keys 
+  605  cd /home/training/.ssh/id_rsa.pub >>/home/training/.ssh/authorized_keys 
+  606  cat /home/training/.ssh/id_rsa.pub>>/home/training/.ssh/authorized_keys 
+  607  chmod 755 /home/training/.ssh/authorized_keys 
+  608  ssh localhost
+  609  cd
+  610  exitr'
+  611  exit
+  612  cd /home/training/hadoop-temp/
+  613  ls
+  614  lstree
+  615  tree
+  616  cd dfs
+  617  ls
+  618  cd /data
+  619  pwd
+  620  ls
+  621  cd data
+  622  ls
+  623  cd current/
+  624  ls
+  625  cd ..
+  626  ls
+  627  pwd
+  628  cd current/
+  629  ls
+  630  pwd
+  631  cat blk_-727527094638690792_1080.meta
+  632  pwd
+  633  cd /home/training/hadoop-temp/dfs/name
+  634  ls
+  635  cd current/
+  636  ls
+  637  cat VERSION 
+  638  cd ../../
+  639  pwd
+  640  cd data
+  641  ls
+  642  cd current/
+  643  ls
+  644  gedit blk_-6712694001695773500_1049.meta 
+  645  pwd
+  646  cd ../../
+  647  cd data/current/
+  648  ls
+  649  vi blk_-7739173218757665674
+  650  hadoop fs -options
+  651  hadoopfs -options
+  652  hadoopfs - options
+  653  hadoop fs - options
+  654  hadoop fs-options
+  655  hadoop fs -options
+  656  start-all.sh
+  657  hadoop fs -options
+  658  java FsShell cp /home/trainging/abc.txt /usr/local/hadoop
+  659  java FsShell -cp /home/trainging/abc.txt /usr/local/hadoop
+  660  hadoop fs -mkdir hadooptest
+  661  hadoop fs -ls
+  662  vi hadooptraning
+  663  vi hadooptraning.txt
+  664  hadoop fs -copyfromlocal /home/traning/hadooptraning.txt hadoop
+  665  hadoop fs -copyFromlocal /home/traning/hadooptraning.txt hadoop
+  666* hadoop fs -copyFromlocal /home/training/abc.txt 
+  667  hadoop fs -copyfromlocal /home/traning/hadooptraning.txt hadooptest
+  668  hadoop fs -ls
+  669  hadoop fs -copyfromlocal /home/training/abc.txt /user/training/hadooptest
+  670  hadoop fs -copyfromlocal hadooptraining  hadooptest
+  671  ls
+  672  mv hadooptraning.txt rajan.txt
+  673  hadoop fs -copyFromlocal  rajan.txt  hadooptest
+  674  ls
+  675  hadoop fs -copyFromLocal  rajan.txt /user/training/hadooptest
+  676  cd /user/training/hadooptest
+  677  hadoop fs -ls
+  678  cd /user/training/hadooptest
+  679  hadoop fs -cat rajan.txt
+  680  hadoop fs -copyToLocal rajan.txt /home/training
+  681  hadoop fs -copyToLocal /hadooptest/rajan.txt /home/training
+  682  hadoop fs -get /hadooptest/rajan.txt /home/training
+  683  hadoop fs -cat /hadooptest/rajan.txt 
+  684  cd /home/training
+  685  ls
+  686  cd /home/training
+  687  pwd
+  688  ls
+  689  hadoop fs -copyToLocal /hadooptest/rajan.txt /home/training/
+  690  ls
+  691  hadoop fs -copyFromLocal abc.txt /user/training/hadooptest
+  692  hadoop fs -cat /hadooptest/abc.txt
+  693  start-all.sh
+  694  hadoop fs -cat abc.txtx
+  695  hadoop fs -cat abc.txt
+  696  hadoop fs -copyFromLocal abc.txt /user/training/
+  697  hadoop fs -cat abc.txt
+  698  hadoop fs -ls
+  699  mkdir rajan
+  700  hadoop fs -copyToLocal abc.txt  /home/rajan
+  701  ls
+  702  cd rajan
+  703  pwd
+  704  ccd
+  705  cd \
+  706  cd /
+  707  cd
+  708  hadoop fs -copyToLocal abc.txt  /home/training/rajan
+  709  hadoop fs -cat abc.txt
+  710  hadoop fasck /user/training/abc.txt -files -blocks -locations
+  711  hadoop fsck /user/training/abc.txt -files -blocks -locations
+  712  hadoop fs -ls -hadooptest
+  713  hadoop fs -ls hadooptest
+  714  hadoop fs -cat abc.txt
+  715  cd hadooptest
+  716  history
