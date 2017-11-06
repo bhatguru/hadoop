@@ -1,0 +1,86 @@
+1. mkdir: this command is used to create a directory in the specified location
+SYNTAX:hadoop fs -mkdir <path>/name of the directory
+EX:[training@localhost Desktop]$ hadoop fs -mkdir /user/hadoop/dew
+
+2. ls: this command lists all the files exists in the file system
+SYNTAX: hadoop fs -ls
+EX:[training@localhost Desktop]$ hadoop fs -ls
+
+
+3.put: this is used to copy any file from local to the hdfs.
+SYNTAX:hadoop fs -put <path to the file > /currentnameoffile newname 
+EX:[training@localhost Desktop]$ hadoop fs -put /home/training/Desktop/mountain MOUNTAIN
+
+
+4.get: this is used to get any file from hdfs to local
+SYNTAX:hadoop fs -get <path of the file> /currentnameoffile newname  
+EX:[training@localhost Desktop]$ hadoop fs -get /user/training/MOUNTAIN mount
+
+
+5.cat: this is used to disply the content in the file.
+SYNTAX:hadoop fs -cat <path>
+EX:[training@localhost Desktop]$ hadoop fs -cat /user/training/MOUNTAIN
+
+
+6.cp: copy the file
+SYNTAX: hadoop fs -cp <path of file> nameof copiedfile
+EX:[training@localhost Desktop]$ hadoop fs -cp /user/training/MOUNTAIN Mountain1
+
+
+7.mv: this is used to move file from one directory to another.
+SYNTAX:hadoop fs -mv <path of file> <path for the file to move>
+EX:[training@localhost Desktop]$ hadoop fs -mv /user/training/MOUNTAIN /user/hadoop
+
+
+8.rm:remove a file
+SYNTAX: hadoop fs -rm <path of file>
+EX:[training@localhost Desktop]$ hadoop fs -rm /user/training/Mountain1
+
+
+9.getmerge: this merges the files in the path and merges and keeps inthe local destination.
+EX:[training@localhost Desktop]$ hadoop fs -getmerge /user/hadoop/MOUNTAIN /home/training/Desktop/mount3
+
+
+10.setrep: this replicates the file and also number of replicas can be given.
+SYNTAX:hadoop fs -setrep no.of replicas <path of file>
+EX;[training@localhost Desktop]$ hadoop fs -setrep  1 /user/hadoop/MOUNTAIN
+
+
+11.touchz: creates a file in the path given, and fails if the file already exists.
+syntax:hadoop fs -touchz <path>
+EX : [training@localhost Desktop]$ hadoop fs -touchz /user/hadoop/mountain3
+the below example is for already existing file.
+[training@localhost Desktop]$ hadoop fs -touchz /user/hadoop/MOUNTAIN
+
+12.tail: this displays the last content of file.
+SYNTAX:hadoop fs -tail -f  <path of file>
+EX:[training@localhost Desktop]$ hadoop fs -tail -f /user/hadoop/MOUNTAIN
+
+
+13. stat: this gives the statistics of the file i.e.,no. of blocks,file name, block size,replication and modification date
+SYNTAX:hadoop fs -stat %o(or)%n(or)%b(or)%r(or)%y,%Y
+EX:[training@localhost Desktop]$ hadoop fs -stat %n /user/hadoop/MOUNTAIN
+
+MOUNTAIN
+[training@localhost Desktop]$ hadoop fs -stat %o /user/hadoop/MOUNTAIN
+Warning: $HADOOP_HOME is deprecated.
+
+67108864
+
+ 14.du: gives the files , directories in the partitions exist.
+SYNTAX:hadoop fs -du <path>
+EX:[training@localhost Desktop]$  hadoop fs -du /home
+
+
+15.count:this gives a count of the spaces, letters , words in the file.
+SYNTAX:hadoop fs -count[-q] <path>
+EX:[training@localhost Desktop]$  hadoop fs -count [-q] /user/hadoop/MOUNTAIN
+Warning: $HADOOP_HOME is deprecated.
+
+           0            1                 26 hdfs://localhost:54310/user/hadoop/MOUNTAIN
+[training@localhost Desktop]$
+16.test
+17.setfatter
+18.df
+19.chgrp
+20.chown
